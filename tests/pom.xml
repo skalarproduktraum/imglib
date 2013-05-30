@@ -74,9 +74,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>${scifio.groupId}</groupId>
-			<artifactId>scifio-devel</artifactId>
-			<version>${scifio.version}</version>
+			<groupId>io.scif</groupId>
+			<artifactId>scifio</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

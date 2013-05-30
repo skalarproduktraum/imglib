@@ -37,6 +37,11 @@
 
 package net.imglib2.io;
 
+import io.scif.common.DataTools;
+import io.scif.common.StatusEvent;
+import io.scif.common.StatusListener;
+import io.scif.common.StatusReporter;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,10 +68,6 @@ import net.imglib2.meta.Axes;
 import net.imglib2.meta.AxisType;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.RealType;
-import ome.scifio.common.DataTools;
-import ome.scifio.common.StatusEvent;
-import ome.scifio.common.StatusListener;
-import ome.scifio.common.StatusReporter;
 import ome.xml.model.primitives.PositiveFloat;
 
 /**
