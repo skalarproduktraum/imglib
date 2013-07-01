@@ -22,17 +22,12 @@
 
 		<dependency>
 			<groupId>${bio-formats.groupId}</groupId>
-			<artifactId>loci-common</artifactId>
+			<artifactId>loci-legacy</artifactId>
 			<version>${bio-formats.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${bio-formats.groupId}</groupId>
 			<artifactId>ome-xml</artifactId>
-			<version>${bio-formats.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${bio-formats.groupId}</groupId>
-			<artifactId>scifio</artifactId>
 			<version>${bio-formats.version}</version>
 		</dependency>
 
