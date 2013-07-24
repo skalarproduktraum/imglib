@@ -47,17 +47,17 @@ import net.imglib2.ops.operation.UnaryOperation;
  *
  * @param <S> The type of the space to copy
  */
-public class CopyTypedUnitSpace<S extends CalibratedSpaceNew<CalibratedAxis>>
+public class CopyCalibratedSpaceNew<S extends CalibratedSpaceNew<CalibratedAxis>>
 	implements UnaryOperation<S, S>
 {
 	private Interval interval;
 
-	public CopyTypedUnitSpace()
+	public CopyCalibratedSpaceNew()
 	{
 		interval = null;
 	}
 
-	public CopyTypedUnitSpace( Interval interval )
+	public CopyCalibratedSpaceNew( Interval interval )
 	{
 		this.interval = interval;
 	}
@@ -87,7 +87,7 @@ public class CopyTypedUnitSpace<S extends CalibratedSpaceNew<CalibratedAxis>>
 	@Override
 	public UnaryOperation< S, S > copy()
 	{
-		return new CopyTypedUnitSpace< S >();
+		return new CopyCalibratedSpaceNew< S >();
 	}
 
 }
