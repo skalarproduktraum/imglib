@@ -56,7 +56,7 @@ import net.imglib2.img.ImgFactory;
  * 
  * @author Curtis Rueden
  */
-public class ImgPlus<T> extends DefaultTypedUnitSpace implements Img<T>,
+public class ImgPlus<T> extends DefaultCalibratedSpaceNew implements Img<T>,
 	Metadata
 {
 

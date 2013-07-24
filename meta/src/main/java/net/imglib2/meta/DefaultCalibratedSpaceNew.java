@@ -37,14 +37,30 @@
 
 package net.imglib2.meta;
 
-import net.imglib2.AnnotatedSpace;
+import java.util.List;
 
 /**
- * A Euclidean space whose dimensions have units and calibrations.
+ * Simple, default {@link CalibratedSpaceNew} implementation.
  * 
  * @author Curtis Rueden
- * @see UnitAxis
  */
-public interface UnitSpace<A extends UnitAxis> extends AnnotatedSpace<A> {
-	// NB: Marker interface.
+public class DefaultCalibratedSpaceNew extends
+	AbstractCalibratedSpaceNew<CalibratedAxis>
+{
+
+	public DefaultCalibratedSpaceNew(final int numDims) {
+		super(numDims);
+		for (int d = 0; d < numDims; d++) {
+			setAxis(new DefaultCalibratedAxis(), d);
+		}
+	}
+
+	public DefaultCalibratedSpaceNew(final CalibratedAxis... axes) {
+		super(axes);
+	}
+
+	public DefaultCalibratedSpaceNew(final List<CalibratedAxis> axes) {
+		super(axes);
+	}
+
 }

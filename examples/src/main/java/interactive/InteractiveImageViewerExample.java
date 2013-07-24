@@ -45,8 +45,8 @@ import net.imglib2.display.RealARGBConverter;
 import net.imglib2.img.array.ArrayImgFactory;
 import net.imglib2.io.ImgIOException;
 import net.imglib2.io.ImgOpener;
+import net.imglib2.meta.CalibratedSpaceNew;
 import net.imglib2.meta.ImgPlus;
-import net.imglib2.meta.UnitSpace;
 import net.imglib2.realtransform.AffineTransform2D;
 import net.imglib2.realtransform.AffineTransform3D;
 import net.imglib2.type.NativeType;
@@ -99,9 +99,9 @@ public class InteractiveImageViewerExample
 		if ( n == 2 )
 		{
 			double yScale = 1;
-			if ( interval instanceof UnitSpace )
+			if (interval instanceof CalibratedSpaceNew)
 			{
-				final UnitSpace<?> cs = ( UnitSpace<?> ) interval;
+				final CalibratedSpaceNew<?> cs = (CalibratedSpaceNew<?>) interval;
 				yScale = cs.axis( 1 ).calibration() / cs.axis( 0 ).calibration();
 				if ( Double.isNaN( yScale ) || Double.isInfinite( yScale ) )
 					yScale = 1;
@@ -127,9 +127,9 @@ public class InteractiveImageViewerExample
 		{
 			double yScale = 1;
 			double zScale = 1;
-			if ( interval instanceof UnitSpace )
+			if (interval instanceof CalibratedSpaceNew)
 			{
-				final UnitSpace<?> cs = ( UnitSpace<?> ) interval;
+				final CalibratedSpaceNew<?> cs = (CalibratedSpaceNew<?>) interval;
 				yScale = cs.axis( 1 ).calibration() / cs.axis( 0 ).calibration();
 				zScale = cs.axis( 2 ).calibration() / cs.axis( 0 ).calibration();
 				if ( Double.isNaN( yScale ) || Double.isInfinite( yScale ) )

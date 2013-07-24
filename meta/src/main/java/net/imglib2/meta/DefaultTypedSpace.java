@@ -44,7 +44,7 @@ import java.util.List;
  * 
  * @author Curtis Rueden
  */
-public abstract class DefaultTypedSpace extends AbstractTypedSpace<TypedAxis> {
+public class DefaultTypedSpace extends AbstractTypedSpace<TypedAxis> {
 
 	public DefaultTypedSpace(final int numDims) {
 		super(numDims);

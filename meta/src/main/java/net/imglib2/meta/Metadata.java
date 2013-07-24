@@ -44,7 +44,7 @@ package net.imglib2.meta;
  * @see ImgPlus
  */
 public interface Metadata extends Named, Sourced,
-	TypedUnitSpace<TypedUnitAxis>, ImageMetadata
+	CalibratedSpaceNew<CalibratedAxis>, ImageMetadata
 {
 	// NB: Marker interface.
 }

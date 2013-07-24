@@ -37,30 +37,23 @@
 
 package net.imglib2.meta;
 
-import java.util.List;
-
 /**
- * Simple, default {@link TypedUnitSpace} implementation.
+ * An axis with an associated {@link AxisType}, unit and calibration.
  * 
  * @author Curtis Rueden
+ * @see TypedAxis
  */
-public class DefaultTypedUnitSpace extends
-	AbstractTypedUnitSpace<TypedUnitAxis>
-{
+public interface CalibratedAxis extends TypedAxis {
 
-	public DefaultTypedUnitSpace(final int numDims) {
-		super(numDims);
-		for (int d = 0; d < numDims; d++) {
-			setAxis(new DefaultTypedUnitAxis(), d);
-		}
-	}
+	/** Gets the dimension's unit. */
+	String unit();
 
-	public DefaultTypedUnitSpace(final TypedUnitAxis... axes) {
-		super(axes);
-	}
+	/** Gets the dimension's calibration value. */
+	double calibration();
 
-	public DefaultTypedUnitSpace(final List<TypedUnitAxis> axes) {
-		super(axes);
-	}
+	/** Sets the dimension's unit. */
+	void setUnit(String unit);
 
+	/** Sets the dimension's image calibration. */
+	void setCalibration(double cal);
 }

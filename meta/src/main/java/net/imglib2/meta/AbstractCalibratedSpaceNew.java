@@ -37,54 +37,28 @@
 
 package net.imglib2.meta;
 
+import java.util.List;
+
 /**
- * Simple, default {@link TypedUnitAxis} implementation.
+ * Abstract base class for {@link CalibratedSpaceNew}.
  * 
  * @author Curtis Rueden
  */
-public class DefaultTypedUnitAxis extends DefaultTypedAxis implements
-	TypedUnitAxis
+public class AbstractCalibratedSpaceNew<A extends CalibratedAxis>
+ extends
+	AbstractTypedSpace<A> implements CalibratedSpaceNew<A>
 {
 
-	private String unit;
-	private double cal;
-
-	public DefaultTypedUnitAxis() {
-		this(Axes.unknown());
+	public AbstractCalibratedSpaceNew(final int numDims) {
+		super(numDims);
 	}
 
-	public DefaultTypedUnitAxis(final AxisType type) {
-		this(type, "pixel", 1);
+	public AbstractCalibratedSpaceNew(final A... axes) {
+		super(axes);
 	}
 
-	public DefaultTypedUnitAxis(final AxisType type, final String unit,
-		final double cal)
-	{
-		super(type);
-		setUnit(unit);
-		setCalibration(cal);
-	}
-
-	// -- UnitAxis methods --
-
-	@Override
-	public double calibration() {
-		return cal;
-	}
-
-	@Override
-	public String unit() {
-		return unit;
-	}
-
-	@Override
-	public void setCalibration(final double cal) {
-		this.cal = cal;
-	}
-
-	@Override
-	public void setUnit(final String unit) {
-		this.unit = unit;
+	public AbstractCalibratedSpaceNew(final List<A> axes) {
+		super(axes);
 	}
 
 }

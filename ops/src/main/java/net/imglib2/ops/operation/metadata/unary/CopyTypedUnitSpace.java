@@ -38,8 +38,8 @@
 package net.imglib2.ops.operation.metadata.unary;
 
 import net.imglib2.Interval;
-import net.imglib2.meta.TypedUnitAxis;
-import net.imglib2.meta.TypedUnitSpace;
+import net.imglib2.meta.CalibratedAxis;
+import net.imglib2.meta.CalibratedSpaceNew;
 import net.imglib2.ops.operation.UnaryOperation;
 
 /**
@@ -47,7 +47,8 @@ import net.imglib2.ops.operation.UnaryOperation;
  *
  * @param <S> The type of the space to copy
  */
-public class CopyTypedUnitSpace< S extends TypedUnitSpace<TypedUnitAxis> > implements UnaryOperation< S, S >
+public class CopyTypedUnitSpace<S extends CalibratedSpaceNew<CalibratedAxis>>
+	implements UnaryOperation<S, S>
 {
 	private Interval interval;
 

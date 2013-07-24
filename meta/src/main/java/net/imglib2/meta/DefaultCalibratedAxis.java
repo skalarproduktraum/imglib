@@ -37,26 +37,54 @@
 
 package net.imglib2.meta;
 
-import net.imglib2.Axis;
-
 /**
- * An axis with an associated unit and calibration.
+ * Simple, default {@link CalibratedAxis} implementation.
  * 
  * @author Curtis Rueden
- * @see UnitSpace
  */
-public interface UnitAxis extends Axis {
+public class DefaultCalibratedAxis extends DefaultTypedAxis implements
+	CalibratedAxis
+{
 
-	/** Gets the dimension's unit. */
-	String unit();
+	private String unit;
+	private double cal;
 
-	/** Gets the dimension's calibration value. */
-	double calibration();
+	public DefaultCalibratedAxis() {
+		this(Axes.unknown());
+	}
 
-	/** Sets the dimension's unit. */
-	void setUnit(String unit);
+	public DefaultCalibratedAxis(final AxisType type) {
+		this(type, "pixel", 1);
+	}
 
-	/** Sets the dimension's image calibration. */
-	void setCalibration(double cal);
+	public DefaultCalibratedAxis(final AxisType type, final String unit,
+		final double cal)
+	{
+		super(type);
+		setUnit(unit);
+		setCalibration(cal);
+	}
+
+	// -- UnitAxis methods --
+
+	@Override
+	public double calibration() {
+		return cal;
+	}
+
+	@Override
+	public String unit() {
+		return unit;
+	}
+
+	@Override
+	public void setCalibration(final double cal) {
+		this.cal = cal;
+	}
+
+	@Override
+	public void setUnit(final String unit) {
+		this.unit = unit;
+	}
 
 }
