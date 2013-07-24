@@ -44,21 +44,76 @@ import java.util.List;
  * 
  * @author Curtis Rueden
  */
-public class AbstractCalibratedSpaceNew<A extends CalibratedAxis>
+public abstract class AbstractCalibratedSpaceNew<A extends CalibratedAxis>
  extends
 	AbstractTypedSpace<A> implements CalibratedSpaceNew<A>
 {
 
+	private final double[] calibration;
+
 	public AbstractCalibratedSpaceNew(final int numDims) {
 		super(numDims);
+		calibration = new double[numDims];
+		for (int i = 0; i < calibration.length; i++)
+			calibration[i] = Double.NaN;
 	}
 
 	public AbstractCalibratedSpaceNew(final A... axes) {
 		super(axes);
+		calibration = new double[axes.length];
+		for (int i = 0; i < calibration.length; i++)
+			calibration[i] = Double.NaN;
 	}
 
 	public AbstractCalibratedSpaceNew(final List<A> axes) {
 		super(axes);
+		calibration = new double[axes.size()];
+		for (int i = 0; i < calibration.length; i++)
+			calibration[i] = Double.NaN;
+	}
+
+	@Override
+	public double calibration(int d) {
+		return calibration[d];
+	}
+
+	@Override
+	public void calibration(double[] cal) {
+		for (int i = 0; i < cal.length; i++)
+			cal[i] = calibration(i);
+	}
+
+	@Override
+	public void calibration(float[] cal) {
+		for (int i = 0; i < cal.length; i++)
+			cal[i] = (float) calibration(i);
+	}
+
+	@Override
+	public void setCalibration(double cal, int d) {
+		calibration[d] = cal;
+	}
+
+	@Override
+	public void setCalibration(double[] cal) {
+		for (int i = 0; i < cal.length; i++)
+			setCalibration(cal[i], i);
+	}
+
+	@Override
+	public void setCalibration(float[] cal) {
+		for (int i = 0; i < cal.length; i++)
+			setCalibration(cal[i], i);
+	}
+
+	@Override
+	public String unit(int d) {
+		return axis(d).unit();
+	}
+
+	@Override
+	public void setUnit(String unit, int d) {
+		axis(d).setUnit(unit);
 	}
 
 }
